@@ -4,7 +4,7 @@ $(document).ready(function(){
     });
     $("#submit").click(displayBracha).click(displayFood).click(appendBracha).click(appendFood)
 });
-
+/*
 function displayFood() {
     var x = document.getElementById("food1");
     var text = "";
@@ -13,9 +13,9 @@ function displayFood() {
      text += x.elements[i].value + ",";
     }
     document.getElementById("foodlist").innerHTML += text;
-    document.getElementById("foodhiddenlist").innerHTML = text;
+    document.getElementById("foodhiddenlist").innerHTML = text; //this line doesn't work
 }
-
+*/
 function displayBracha() {
     var x = document.getElementById("bracha1");
     var text = "";
@@ -34,7 +34,7 @@ function appendBracha() {
 var y = document.getElementById("brachahiddenlist").innerHTML;
 bracha.push(y);
 alert(bracha);
-}
+}/*
 function appendFood() {
     var y = document.getElementById("foodhiddenlist").innerHTML;
     food.push(y);
@@ -44,3 +44,4 @@ function appendFood() {
 function brachaEval() {
 
 }
+*/
