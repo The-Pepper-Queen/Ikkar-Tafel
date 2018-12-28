@@ -30,6 +30,7 @@ function displayBracha() {
 var bracha = [];
 var food = [];
 
+//i somehow managed to break this. the alert isn't working, idk if its adding it to the list
 function appendBracha() {
 var y = document.getElementById("brachahiddenlist").innerHTML;
 bracha.push(y);
