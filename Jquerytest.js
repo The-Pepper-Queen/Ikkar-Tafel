@@ -1,62 +1,176 @@
 /*
 To do:
- -find out why displayfood and append food are being weird
- -continue brachaEval
  -start typing corresponding HTML inputs for next questions
- -refine map for which questions go to where
- -figure out how to get numbered food/bracha from array for final answer
+ -write css for html of next qs
  -Formatting
  */
-$(document).ready(function(){
-    $("#qu").click(function(){
-    $("h1").toggle();
+//buttons
+$(document).ready(function() {
+    $("#showhidetest").click(function(){ 
+        $("h1").toggle();
     });
-    $("#addBracha").click(displayBracha).click(appendBracha).click(displayFood).click(appendFood)
-    $("#submit").click(brachaEval);
+
+    $("#addBrachaButton").click(addFoodBracha);
+
+    $("#brachaSubmitButton").click(brachaEval);
+
+    $("#mezonotTypeButton").click(mezonotEval);
+
+    $("#MezonotImportantButton").click(mostImportant);
+
+    $("#foodSelectButton").click(chooseFav);
+
+    $("#MajoritySelectButton").click(chooseMaj);
+
 });
 
+function showhide (show) {
+    $(".Qs").hide();
+    $(show).show();
+};
+
+var brachaNamesList = [];
+var foodNamesList = [];
+
+function addFoodBracha() {
+    displayFood();
+    displayBracha();
+};
+
 function displayFood() {
-    var x = document.getElementById("food1");
-    var text = "";
-    var i;
-    for (i = 0; i < x.length ;i++) {
-     text += x.elements[i].value;
-    }
-    document.getElementById("foodlist").innerHTML += text + ", ";
-    document.getElementById("foodhiddenlist").innerHTML = text;
-}
+    updateLists("foodNameInput", "fooddisplay", foodNamesList);
+};
 
 function displayBracha() {
-    var x = document.getElementById("bracha1");
-    var text = "";
-    var i;
-    for (i = 0; i < x.length; i++) {
-     text += x.elements[i].value;
-    }
-    document.getElementById("brachalist").innerHTML += text + ", ";
-    document.getElementById("brachahiddenlist").innerHTML = text;
-}
+    updateLists("brachaDropdown", "brachadisplay", brachaNamesList);
+};
 
-var bracha = [];
-var food = [];
-
-function appendBracha() {
-    var y = document.getElementById("brachahiddenlist").innerHTML;
-    bracha.push(y);
-    //alert(bracha);
-}
-
-function appendFood() {
-    var y = document.getElementById("foodhiddenlist").innerHTML;
-    food.push(y);
-    //alert(food);
-}
+// Updates the given list based on user input
+function updateLists(inputIdName, displayParagraphIdName, namesList) {
+    var inputVal = $('#' + inputIdName).val();
+    namesList.push(inputVal);
+    $('#' + displayParagraphIdName).text(namesList.join(", "));
+};
 
 function brachaEval() {
-    if (document.getElementById("brachalist").innerHTML.includes("Hamotzi")) {
-        alert("YAY")
+    if (brachaNamesList.includes("Hamotzi")) {
+        answer("Hamotzi");
     }
-    else {
-        alert(":(")
+    else if (brachaNamesList.includes("Unsure")) {
+        alert("figure out before proceeding. You can try using /oukosher.org/guide-to-blessings/")
+    }
+    else if (brachaNamesList.includes("Mezonot (BROWS)")) {
+       showhide($("#step2a"))
+    }
+    else if (brachaNamesList.includes("Hagafen")||brachaNamesList.includes("Mezonot rice")||brachaNamesList.includes("Ha'etz")||brachaNamesList.includes("Ha'adama")||brachaNamesList.includes("Shehakol")) {
+        brachaIsOther();
+       // $('#step2b').show();
+       showhide($("#step2b"))
+    }
+};
+
+var mezonotTest = 2;
+
+function mezonotEval() {
+var checkedVal = $("input[name=MQ]:checked").val();
+    if (checkedVal == "CT") {
+        answer("Mezonot (BROWS)");
+    }
+    else if (checkedVal == "CS") {
+        mezonotTest = 1
+        brachaIsOther();
+         showhide($("#step2b"))
+    }
+    else if (checkedVal == "NC") {
+        alert("#3");
+        showhide($("#step2a1"))
+    }
+    else if (checkedVal == "BA") {
+        brachaIsOther();
+        showhide($("#step2b"))
+    }
+};
+
+function mostImportant() {
+    var checkedVal = $("input[name=CSQ]:checked").val();
+
+    if (checkedVal == "M") {
+        answer("Mezonot (BROWS)");
+    }
+    else if (checkedVal == "NM") {
+        mezonotTest = 1
+        brachaIsOther();
+        showhide($("#step2b"))
     }
 }
+
+//adds food to dropdown
+function brachaIsOther() {
+
+     var DD = document.getElementById("foodDropDown");
+    for (i = 0; i <foodNamesList.length;i++){
+        var option = document.createElement("option");
+        option.text = foodNamesList[i];
+        option.value = foodNamesList[i];
+
+        if (brachaNamesList[i] != "Mezonot (BROWS)") {
+            DD.add(option);
+        }
+            
+    }
+};
+
+function populateMaj() {
+
+      var DD = document.getElementById("foodDropDownMaj");
+
+     for (i = 0; i <foodNamesList.length;i++){
+         var option = document.createElement("option");
+         option.text = foodNamesList[i];
+         option.value = foodNamesList[i];
+ 
+         if (brachaNamesList[i] != "Mezonot (BROWS)") {
+             DD.add(option);
+         }
+             
+     }
+ };
+
+
+function chooseFav() {
+    choose('#foodDropDown',"#step3");
+    if ($("#foodDropDown").val() == "Unsure") {
+        populateMaj();
+    }
+
+};
+
+function chooseMaj() {
+    choose("#foodDropDownMaj","#idontknow");
+};
+
+function choose(dropdown,showed) {
+    if ($(dropdown).val() == "Unsure") {
+        showhide($(showed))
+    }
+    else {
+       foodIndex =  foodNamesList.indexOf($(dropdown).val());
+       blessing = brachaNamesList[foodIndex];
+       answer(blessing);
+    }
+}
+//tells user the answer
+function answer(bracha) {
+    showhide($("#brachaIs"))
+    i1 = brachaNamesList.indexOf(bracha);
+    var j = ". "
+    var k = ". "
+
+    if (mezonotTest == 1) {
+       i2 = brachaNamesList.indexOf("Mezonot (BROWS)");
+       var j = " and the " + foodNamesList[i2] + ". ";
+       var k = " and " + brachaNamesList[i2] + ". ";
+    }
+   
+    $("#brachaIs").text("your Ikkar is the " + foodNamesList[i1] + j + "Your bracha is " + brachaNamesList[i1] + k);
+};
