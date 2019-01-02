@@ -6,9 +6,8 @@ To do:
  */
 //buttons
 $(document).ready(function() {
-    $("#showhidetest").click(function(){ 
-        $("h1").toggle();
-    });
+  
+    showhide($("#step1"))
 
     $("#addBrachaButton").click(addFoodBracha);
 
@@ -57,7 +56,7 @@ function brachaEval() {
         answer("Hamotzi");
     }
     else if (brachaNamesList.includes("Unsure")) {
-        alert("figure out before proceeding. You can try using /oukosher.org/guide-to-blessings/")
+        showhide($("#donotproceed"));
     }
     else if (brachaNamesList.includes("Mezonot (BROWS)")) {
        showhide($("#step2a"))
@@ -82,7 +81,6 @@ var checkedVal = $("input[name=MQ]:checked").val();
          showhide($("#step2b"))
     }
     else if (checkedVal == "NC") {
-        alert("#3");
         showhide($("#step2a1"))
     }
     else if (checkedVal == "BA") {
