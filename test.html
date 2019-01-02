@@ -3,14 +3,23 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="Jquerytest.js"></script>
+    <style>
+        div,  #brachaIs, #donotproceed {
+            margin: auto;
+            width: 50%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hilchos Ikkar v'Tafel</h1>
-    <button id="showhidetest">show/hide</button>
+    <div>
+        <h1>Hilchos Ikkar v'Tafel</h1>
+    </div>
     <br>
     <br>
 
     <div id="step1" class="Qs">
+        <p>To start, fill in your foods and brachos and add them. When done, press submit.</p>
         <form class="form">
             <input  id="foodNameInput" type="text" name="foodName" value="food goes here">
         </form>
@@ -102,6 +111,7 @@
         </ul>
     </div>
 
+    <p class= "Qs" id="donotproceed">figure out before proceeding. You can try using <a href="https://www.oukosher.org/guide-to-blessings/">O U Kosher's brachot guide</a> to find it</p>
     <p id="brachaIs"></p>
 </body>
 </html>
