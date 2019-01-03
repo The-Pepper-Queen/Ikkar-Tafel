@@ -29,7 +29,7 @@ h3 {
 
 .Qs {
     /* border and background */
-    /* display:none; */
+    display:none; 
     background-color:#008080;
     border: .2em solid #7D1D42;
     padding: 1em 5em 5em 5em;
