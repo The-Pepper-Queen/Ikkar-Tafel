@@ -3,13 +3,18 @@ To do:
  -start typing corresponding HTML inputs for next questions
  -write css for html of next qs
  -Formatting
+ -solids/liquids Q
+ -type of mix Q
+ -ground up Q
+ -add after bracha
  */
+
 //buttons
 $(document).ready(function() {
   
-    showhide($("#step1"))
+    showhide($("#step1"));
 
-    $("#addBrachaButton").click(addFoodBracha);
+    $("#addBrachaButton").click(addFoodBracha)
 
     $("#brachaSubmitButton").click(brachaEval);
 
@@ -21,15 +26,20 @@ $(document).ready(function() {
 
     $("#MajoritySelectButton").click(chooseMaj);
 
+    $(".reloadButton").click(startOver)
+
 });
 
+//directs which parts of the survey to show or hide
 function showhide (show) {
     $(".Qs").hide();
     $(show).show();
 };
 
+//arrays where the brachos and food are stored
 var brachaNamesList = [];
 var foodNamesList = [];
+
 
 function addFoodBracha() {
     displayFood();
@@ -51,6 +61,7 @@ function updateLists(inputIdName, displayParagraphIdName, namesList) {
     $('#' + displayParagraphIdName).text(namesList.join(", "));
 };
 
+//sends user to next step based on the value of the bracha
 function brachaEval() {
     if (brachaNamesList.includes("Hamotzi")) {
         answer("Hamotzi");
@@ -59,17 +70,18 @@ function brachaEval() {
         showhide($("#donotproceed"));
     }
     else if (brachaNamesList.includes("Mezonot (BROWS)")) {
-       showhide($("#step2a"))
+       showhide($("#step2a"));
     }
     else if (brachaNamesList.includes("Hagafen")||brachaNamesList.includes("Mezonot rice")||brachaNamesList.includes("Ha'etz")||brachaNamesList.includes("Ha'adama")||brachaNamesList.includes("Shehakol")) {
         brachaIsOther();
-       // $('#step2b').show();
-       showhide($("#step2b"))
+        showhide($("#step2b"));
     }
 };
 
+//sets variable that will be false in answer function unless certain "Mezonot" criteria are met
 var mezonotTest = 2;
 
+//evaluates where to proceed if the bracha is "Mezonot" based on user input
 function mezonotEval() {
 var checkedVal = $("input[name=MQ]:checked").val();
     if (checkedVal == "CT") {
@@ -89,6 +101,7 @@ var checkedVal = $("input[name=MQ]:checked").val();
     }
 };
 
+//intermediary step if "Mezonot" is "NC" (not cooked)
 function mostImportant() {
     var checkedVal = $("input[name=CSQ]:checked").val();
 
@@ -102,10 +115,10 @@ function mostImportant() {
     }
 }
 
-//adds food to dropdown
+//adds food to the food dropdown
 function brachaIsOther() {
-
      var DD = document.getElementById("foodDropDown");
+
     for (i = 0; i <foodNamesList.length;i++){
         var option = document.createElement("option");
         option.text = foodNamesList[i];
@@ -118,20 +131,9 @@ function brachaIsOther() {
     }
 };
 
+//adds food to the second food dropdown
 function populateMaj() {
-
-      var DD = document.getElementById("foodDropDownMaj");
-
-     for (i = 0; i <foodNamesList.length;i++){
-         var option = document.createElement("option");
-         option.text = foodNamesList[i];
-         option.value = foodNamesList[i];
- 
-         if (brachaNamesList[i] != "Mezonot (BROWS)") {
-             DD.add(option);
-         }
-             
-     }
+    $("#foodDropDown").appendTo("#dropDownMaj");
  };
 
 
@@ -144,7 +146,7 @@ function chooseFav() {
 };
 
 function chooseMaj() {
-    choose("#foodDropDownMaj","#idontknow");
+    choose('#foodDropDown',"#idontknow");
 };
 
 function choose(dropdown,showed) {
@@ -159,7 +161,7 @@ function choose(dropdown,showed) {
 }
 //tells user the answer
 function answer(bracha) {
-    showhide($("#brachaIs"))
+   showhide($("#brachaFinal"))
     i1 = brachaNamesList.indexOf(bracha);
     var j = ". "
     var k = ". "
@@ -170,5 +172,9 @@ function answer(bracha) {
        var k = " and " + brachaNamesList[i2] + ". ";
     }
    
-    $("#brachaIs").text("your Ikkar is the " + foodNamesList[i1] + j + "Your bracha is " + brachaNamesList[i1] + k);
+    $("#brachaIs").text("Your Ikkar is the " + foodNamesList[i1] + j + "Your bracha is " + brachaNamesList[i1] + k);
 };
+
+function startOver() {
+    location.reload();
+}

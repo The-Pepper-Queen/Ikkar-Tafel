@@ -1,0 +1,75 @@
+/*     font-family: 'Fredericka the Great', cursive;
+    font-family: 'Overlock', cursive;
+    font-family: 'Thasadith';
+    font-family: 'Cinzel Decorative', cursive; */
+body {
+    background-image: url("pictures/glass.jpeg");
+    background-size:cover;
+    font-family:'Overlock', cursive;
+}
+#outer {
+    background-color:rgba(178,178,178,0.7);
+    width:40%;
+    margin:auto;
+    padding:5em;
+    -webkit-box-shadow: 10px 10px 114px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 114px -10px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 114px -10px rgba(0,0,0,0.75);
+}
+h1 {
+    text-align:center;
+    color: 	#005050;
+    font-family:'Fredericka the Great';
+}
+
+h3 {
+    text-align:center;
+}
+
+
+.Qs {
+    /* border and background */
+    /* display:none; */
+    background-color:#008080;
+    border: .2em solid #7D1D42;
+    padding: 1em 5em 5em 5em;
+    margin: auto;
+    width: 50%;
+    /* text */
+    color: #ccc;
+    font-family: 'Thasadith';
+ 
+
+
+}
+
+input[type="text"], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ccc;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.centerbuttons {
+    text-align:center;
+}
+
+.btn {
+    margin:1em auto 1em auto;
+    padding:1em;
+    border:5px;
+    border-radius:5px;
+    background-color:#7C1E42;
+    color: #ccc;
+    font-family: 'Cinzel Decorative', cursive; 
+
+}
+
+.btn:hover {
+    background-color:#963852;
+}

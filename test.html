@@ -1,117 +1,122 @@
 <!DOCTYPE html>
 <html>
 <head>
+        <link rel="stylesheet" type="text/css" href="ikkur-tafel.css">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredericka+the+Great|Overlock|Thasadith" rel="stylesheet">
+        <title>Ikkur or Tafel</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="Jquerytest.js"></script>
-    <style>
-        div,  #brachaIs, #donotproceed {
-            margin: auto;
-            width: 50%;
-            text-align: center;
-        }
-    </style>
 </head>
+
 <body>
-    <div>
-        <h1>Hilchos Ikkar v'Tafel</h1>
-    </div>
-    <br>
-    <br>
-
-    <div id="step1" class="Qs">
-        <p>To start, fill in your foods and brachos and add them. When done, press submit.</p>
-        <form class="form">
-            <input  id="foodNameInput" type="text" name="foodName" value="food goes here">
-        </form>
+    <div id="outer">
+        <div>
+            <h1>Hilchos Ikkar v'Tafel</h1>
+        </div>
         <br>
-        <form>
-            <select id="brachaDropdown">
-                <option value="Hamotzi">Hamotzi</option>
-                <option value="Hagafen">Hagafen</option>
-                <option value="Mezonot (BROWS)">Mezonot (BROWS)</option>
-                <option value="Mezonot rice">Mezonot rice</option>
-                <option value="Ha'etz">Haetz</option>
-                <option value="Ha'adama">Haadama</option>
-                <option value="Shehakol">Shehakol</option>
-                <option value="Unsure">Unsure</option>
-            </select>          
-         </form>
-         <br>
         <br>
-        <button id="addBrachaButton">add food/bracha</button>
-        <button id="brachaSubmitButton">Submit</button>
-        <p id="fooddisplay"></p>
-        <p id="brachadisplay"></p>   
-    </div>
 
-    <div id="step2a" class="Qs" style="display:none">
-        <p id = "brachaIsMezonot">Is the food:</p>
-        <form id="mezonotCategories">
-                <input type="radio" name="MQ" value="CT">Cooked together <br>
-                <input type="radio" name="MQ" value="CS">Cooked together but separate states (ie. solids and liquids)<br>
-                <input type="radio" name="MQ" value="NC">Not cooked together <br> <!--ask which is important. if non M, both. else M-->          
-                <input type="radio" name="MQ" value="BA">Used as a binding agent <br>
-        </form>
-        <button id = "mezonotTypeButton">Submit</button>
-    </div>
+        <div id="step1" class="Qs">
+            <h3>To start, fill in your foods and brachos <u>one by one</u> and add them. When done, press submit.</h3>
+            <form class="form" id ="clearme">
+                <input  id="foodNameInput" type="text" name="foodName" onfocus="this.value=''" value="food goes here">
+            </form>
+            <br>
+            <form class="form">
+                <select id="brachaDropdown">
+                    <option value="Hamotzi">Hamotzi</option>
+                    <option value="Hagafen">Hagafen</option>
+                    <option value="Mezonot (BROWS)">Mezonot (BROWS)</option>
+                    <option value="Mezonot rice">Mezonot rice</option>
+                    <option value="Ha'etz">Haetz</option>
+                    <option value="Ha'adama">Haadama</option>
+                    <option value="Shehakol">Shehakol</option>
+                    <option value="Unsure">Unsure</option>
+                </select>          
+            </form>
+            <br>
+            <br>
+            <div class="centerbuttons">
+                <button class="btn" id="addBrachaButton">add food/bracha</button>
+                <button class="btn" id="brachaSubmitButton">Submit</button>
+                <p id="fooddisplay"></p>
+                <p id="brachadisplay"></p>  
+            </div> 
+        </div>
 
-    <div id="step2a1" class="Qs" style="display:none;">
-        <form>
-            <input type="radio" name="CSQ" value="M">both are equally important <br>
-            <input type="radio" name="CSQ" value="M">The Mezonot item is more important<br>
-            <input type="radio" name="CSQ" value="NM">the non-Mezonot item is more important<br>
-        </form>
-        <button id="MezonotImportantButton">Submit</button>
-    </div>
+        <div id="step2a" class="Qs">
+            <h3 id = "brachaIsMezonot">Is the food:</h3>
+            <form class ="form" id="mezonotCategories">
+                    <input type="radio" name="MQ" value="CT" class="rb">Cooked together <br>
+                    <input type="radio" name="MQ" value="CS" class="rb">Cooked together but separate states (ie. solids and liquids)<br>
+                    <input type="radio" name="MQ" value="NC" class="rb">Not cooked together <br> 
+                    <input type="radio" name="MQ" value="BA" class="rb">Used as a binding agent <br>
+            </form>
+            <button class="btn" id = "mezonotTypeButton">Submit</button>
+        </div>
 
-    <div id="step2b" class="Qs" style="display:none;">
-        <p id = "brachaIsOther">What is the most important food in your opinion?</p>
-        <form>
-            <select id="foodDropDown">
-                <option value="Unsure">Unsure</option>
-            </select>
-        </form>
-        <button id="foodSelectButton">Submit food preference</button>
-    </div>
+        <div id="step2a1" class="Qs">
+            <form class = "form">
+                <input type="radio" name="CSQ" value="M" class="rb">both are equally important <br>
+                <input type="radio" name="CSQ" value="M" class="rb">The Mezonot item is more important<br>
+                <input type="radio" name="CSQ" value="NM" class="rb">the non-Mezonot item is more important<br>
+            </form>
+            <button class="btn" id="MezonotImportantButton">Submit</button>
+        </div>
 
-    <div id="step3" class="Qs" style="display:none;">
-        <p id="majority">Which food is the majority?</p>
-        <form>
-                <select id="foodDropDownMaj">
+        <div id="step2b" class="Qs">
+            <h3 id = "brachaIsOther">What is the most important food in your opinion?</h3>
+            <form class="form">
+                <select id="foodDropDown">
                     <option value="Unsure">Unsure</option>
                 </select>
             </form>
-        <button id="MajoritySelectButton">Submit Majority</button>
-    </div>
+            <button class="btn" id="foodSelectButton">Submit food preference</button>
+        </div>
 
-    <div id="idontknow" class="Qs" style="display: none;">
-        <p>If you don't know, you have 2 options:</p>
-        <ul>
-            <li>If there is a “specific” (not shehakol) bracha that would technically work for all things
-                in the mix, you make that bracha. Examples:
-                <ul>
-                    <li>If you have a 50/50 mix of diced pineapple and orange, since the less specific bracha of
-                            Hoadama works for oranges too, you can make an hoadamah on the mix.
-                    </li>
-                    <li>If you have a chocolate covered nut/raisin, (and you do not feel the chocolate is the ikar)
-                            technically, the brocha of Haeitz would work on the chocolate too, so you can make an
-                            haeitz on the entire thing. Technically this would work for peanuts also as Hoadamah
-                            would also technically work for chocolate.
-                    </li>
-                </ul>
-            </li>
-            <li>If one can separate the two, one can make a bracha on each part individually. Example:
-                <ul>
-                    <li>
-                            Crispix cereal, where one side is made from rice flour (Mezonot) and one sidefrom corn flour
-                             (shehakol) one would split it in half and make a blessing on the rice side(darker) and then the corn side (lighter).
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+        <div id="step3" class="Qs">
+            <h3 id="majority">Which food is the majority?</h3>
+            <form class="form" id="dropDownMaj">
+                </form>
+            <button class="btn" id="MajoritySelectButton">Submit Majority</button>
+        </div>
 
-    <p class= "Qs" id="donotproceed">figure out before proceeding. You can try using <a href="https://www.oukosher.org/guide-to-blessings/">O U Kosher's brachot guide</a> to find it</p>
-    <p id="brachaIs"></p>
+        <div id="idontknow" class="Qs" style="display: none;">
+            <h3>If you don't know, you have 2 options:</h3>
+            <ul>
+                <li>If there is a “specific” (not shehakol) bracha that would technically work for all things
+                    in the mix, you make that bracha. Examples:
+                    <ul>
+                        <li>If you have a 50/50 mix of diced pineapple and orange, since the less specific bracha of
+                                Hoadama works for oranges too, you can make an hoadamah on the mix.
+                        </li>
+                        <li>If you have a chocolate covered nut/raisin, (and you do not feel the chocolate is the ikar)
+                                technically, the brocha of Haeitz would work on the chocolate too, so you can make an
+                                haeitz on the entire thing. Technically this would work for peanuts also as Hoadamah
+                                would also technically work for chocolate.
+                        </li>
+                    </ul>
+                </li>
+                <li>If one can separate the two, one can make a bracha on each part individually. Example:
+                    <ul>
+                        <li>
+                                Crispix cereal, where one side is made from rice flour (Mezonot) and one sidefrom corn flour
+                                (shehakol) one would split it in half and make a blessing on the rice side(darker) and then the corn side (lighter).
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <button class="btn reloadButton">Start Over</button>        </div>
+
+        <div class= "Qs" id="donotproceed">
+            <h3>Figure out before proceeding. You can try using <a href="https://www.oukosher.org/guide-to-blessings/">O U Kosher's brachot guide</a> to find it.</h3>
+            <button class="btn reloadButton">Start Over</button>
+        </div>
+
+        <div id= "brachaFinal" class = "Qs">
+            <h3 id="brachaIs"></h3>
+            <button class="btn reloadButton">Start Over</button>
+        </div>
+    </div>
 </body>
 </html>
