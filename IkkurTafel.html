@@ -1,88 +1,88 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                 <link rel="stylesheet" type="text/css" href="ikkurTafelDesign.css">
-                 <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredericka+the+Great|Overlock|Thasadith" rel="stylesheet">
-        <title>Ikkur or Tafel</title>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                  <script src="ITJquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ikkur-tafel.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredericka+the+Great|Overlock|Thasadith" rel="stylesheet">
+  <title>Ikkur or Tafel</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="Jquerytest.js"></script>
 </head>
 
 <body>
-    <div id="outer">
+      <div id="outer">
         <div>
-            <h1>Hilchos Ikkar v'Tafel</h1>
+          <h1>Hilchos Ikkar v'Tafel</h1>
         </div>
         <br>
         <br>
 
-        <div id="step1" class="Qs">
-            <h3>To start, fill in your foods and brachos <u>one by one</u> and add them. When done, press submit.</h3>
-            <form class="form" id ="clearme">
-                <input  id="foodNameInput" type="text" name="foodName" onfocus="this.value=''" value="food goes here">
+        <div id="step1" class="qs">
+          <h3>To start, fill in your foods and brachos <u>one by one</u> and add them. When done, press submit.</h3>
+            <form class="form" id="clearme">
+              <input  id="foodnameinput" type="text" name="foodname" onfocus="this.value=''" value="food goes here">
             </form>
             <br>
             <form class="form">
-                <select id="brachaDropdown">
-                    <option value="Hamotzi">Hamotzi</option>
-                    <option value="Hagafen">Hagafen</option>
-                    <option value="Mezonot (BROWS)">Mezonot (BROWS)</option>
-                    <option value="Mezonot rice">Mezonot rice</option>
-                    <option value="Ha'etz">Haetz</option>
-                    <option value="Ha'adama">Haadama</option>
-                    <option value="Shehakol">Shehakol</option>
-                    <option value="Unsure">Unsure</option>
-                </select>          
+              <select id="brachadropdown">
+                <option value="Hamotzi">Hamotzi</option>
+                <option value="Hagafen">Hagafen</option>
+                <option value="Mezonot (BROWS)">Mezonot (BROWS)</option>
+                <option value="Mezonot (rice)">Mezonot (rice)</option>
+                <option value="Ha'etz">Haetz</option>
+                <option value="Ha'adama">Ha'adama</option>
+                <option value="Shehakol">Shehakol</option>
+                <option value="Unsure">Unsure</option>
+              </select>          
             </form>
             <br>
             <br>
             <div class="centerbuttons">
-                <button class="btn" id="addBrachaButton">add food/bracha</button>
-                <button class="btn" id="brachaSubmitButton">Submit</button>
-                <p id="fooddisplay"></p>
-                <p id="brachadisplay"></p>  
+              <button class="btn" id="addbrachabutton">add food/bracha</button>
+              <button class="btn" id="brachasubmitbutton">Submit</button>
+              <p id="fooddisplay"></p>
+              <p id="brachadisplay"></p>  
             </div> 
         </div>
 
-        <div id="step2a" class="Qs">
-            <h3 id = "brachaIsMezonot">Is the food:</h3>
-            <form class ="form" id="mezonotCategories">
-                    <input type="radio" name="MQ" value="CT" class="rb">Cooked together <br>
-                    <input type="radio" name="MQ" value="CS" class="rb">Cooked together but separate states (ie. solids and liquids)<br>
-                    <input type="radio" name="MQ" value="NC" class="rb">Not cooked together <br> 
-                    <input type="radio" name="MQ" value="BA" class="rb">Used as a binding agent <br>
-            </form>
-            <button class="btn" id = "mezonotTypeButton">Submit</button>
+        <div id="step2a" class="qs">
+          <h3>Is the food:</h3>
+          <form class="form" id="mezonotCategories">
+              <input type="radio" name="MQ" value="CT" class="rb">Cooked together <br>
+              <input type="radio" name="MQ" value="CS" class="rb">Cooked together but separate states (ie. solids and liquids)<br>
+              <input type="radio" name="MQ" value="NC" class="rb">Not cooked together <br> 
+              <input type="radio" name="MQ" value="BA" class="rb">Used as a binding agent (not for flavor or satiation) <br>
+          </form>
+          <button class="btn" id = "mezonottypebutton">Submit</button>
         </div>
 
-        <div id="step2a1" class="Qs">
-            <form class = "form">
-                <input type="radio" name="CSQ" value="M" class="rb">both are equally important <br>
-                <input type="radio" name="CSQ" value="M" class="rb">The Mezonot item is more important<br>
-                <input type="radio" name="CSQ" value="NM" class="rb">the non-Mezonot item is more important<br>
-            </form>
-            <button class="btn" id="MezonotImportantButton">Submit</button>
+        <div id="step2a1" class="qs">
+          <form class="form">
+            <input type="radio" name="CSQ" value="M" class="rb">both are equally important <br>
+            <input type="radio" name="CSQ" value="M" class="rb">The Mezonot item is more important<br>
+            <input type="radio" name="CSQ" value="NM" class="rb">the non-Mezonot item is more important<br>
+          </form>
+          <button class="btn" id="mezonotimportantbutton">Submit</button>
         </div>
 
-        <div id="step2b" class="Qs">
-            <h3 id = "brachaIsOther">What is the most important food in your opinion?</h3>
+        <div id="step2b" class="qs">
+          <h3>What is the most important food in your opinion?</h3>
             <form class="form">
-                <select id="foodDropDown">
-                    <option value="Unsure">Unsure</option>
-                </select>
-            </form>
-            <button class="btn" id="foodSelectButton">Submit food preference</button>
+              <select id="fooddropdown">
+                <option value="Unsure">Unsure</option>
+              </select>
+          </form>
+          <button class="btn" id="foodselectbutton">Submit food preference</button>
         </div>
 
-        <div id="step3" class="Qs">
-            <h3 id="majority">Which food is the majority?</h3>
-            <form class="form" id="dropDownMaj">
+        <div id="step3" class="qs">
+            <h3>Which food is the majority?</h3>
+            <form class="form" id="dropdownmaj">
                 </form>
-            <button class="btn" id="MajoritySelectButton">Submit Majority</button>
+            <button class="btn" id="majorityselectbutton">Submit Majority</button>
         </div>
 
-        <div id="idontknow" class="Qs" style="display: none;">
+        <div id="idontknow" class="qs">
             <h3>If you don't know, you have 2 options:</h3>
             <ul>
                 <li>If there is a “specific” (not shehakol) bracha that would technically work for all things
@@ -107,16 +107,16 @@
                     </ul>
                 </li>
             </ul>
-            <button class="btn reloadButton">Start Over</button>        </div>
+            <button class="btn reloadbutton">Start Over</button>        </div>
 
-        <div class= "Qs" id="donotproceed">
+        <div class="qs" id="donotproceed">
             <h3>Figure out before proceeding. You can try using <a href="https://www.oukosher.org/guide-to-blessings/">O U Kosher's brachot guide</a> to find it.</h3>
-            <button class="btn reloadButton">Start Over</button>
+            <button class="btn reloadbutton">Start Over</button>
         </div>
 
-        <div id= "brachaFinal" class = "Qs">
+        <div id= "brachaFinal" class="qs">
             <h3 id="brachaIs"></h3>
-            <button class="btn reloadButton">Start Over</button>
+            <button class="btn reloadbutton">Start Over</button>
         </div>
     </div>
 </body>
