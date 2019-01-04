@@ -1,7 +1,10 @@
-/*     font-family: 'Fredericka the Great', cursive;
+/*
+    Fonts
+    font-family: 'Fredericka the Great', cursive;
     font-family: 'Overlock', cursive;
     font-family: 'Thasadith';
-    font-family: 'Cinzel Decorative', cursive; */
+    font-family: 'Cinzel Decorative', cursive; 
+*/
 body {
     background-image: url("pictures/glass.jpeg");
     background-size:cover;
@@ -27,9 +30,9 @@ h3 {
 }
 
 
-.Qs {
+.qs {
     /* border and background */
-    display:none; 
+    /* display:none; */
     background-color:#008080;
     border: .2em solid #7D1D42;
     padding: 1em 5em 5em 5em;
