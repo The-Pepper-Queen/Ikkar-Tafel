@@ -122,7 +122,7 @@ function populateMaj() {
 
 
 function chooseFav() {
-    choose("#step3");
+    choose(($("#step3"));
     
     if ($("#fooddropdown").val() == "Unsure") {
         populateMaj();
