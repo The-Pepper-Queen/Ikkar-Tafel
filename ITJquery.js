@@ -139,7 +139,7 @@ function choose(showed) {
         showhide($(showed))
     }
     else {
-       var foodIndex =  foodNamesList.indexOf($(dropdown).val());
+       var foodIndex =  foodNamesList.indexOf($('#fooddropdown').val());
        var blessing = brachaNamesList[foodIndex];
        answer(blessing);
     }
