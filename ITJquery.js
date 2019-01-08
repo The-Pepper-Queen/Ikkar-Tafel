@@ -137,8 +137,7 @@ function chooseMaj() {
 function choose(showed) {
     if ($('#fooddropdown').val() == "Unsure") {
         showhide($(showed))
-    }
-    else {
+    } else {
        var foodIndex =  foodNamesList.indexOf($('#fooddropdown').val());
        var blessing = brachaNamesList[foodIndex];
        answer(blessing);
